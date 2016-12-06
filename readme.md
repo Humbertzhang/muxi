@@ -18,7 +18,7 @@
 
 ####美剧
 
-> 从 [越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
+> 从[越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
 </br> 
 > 暑假看完了 [绝命毒师（Breaking Bad）](http://baike.baidu.com/item/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88) 真正让我震撼的一部美剧，一个高中化学老师走上制造毒品的道路
 </br> 
