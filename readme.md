@@ -1,7 +1,5 @@
 #自我介绍 By 张可#
 
-<body bgcolor=" #008080 ">
-
 ***
 
 ##性格
@@ -18,12 +16,12 @@
 
 ####美剧
 
-> 从[越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
-</br> 
-> 暑假看完了 [绝命毒师（Breaking Bad）](http://baike.baidu.com/item/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88) 真正让我震撼的一部美剧，一个高中化学老师走上制造毒品的道路
-</br> 
+>从[越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
+<br> 
+> 暑假看完了 [绝命毒师（Breaking Bad）](http://baike.baidu.com/item/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88) 真正让我震撼的一部美剧，一个高中化学老师走上制造毒品的道路。
+<br> 
 > 最近在看 [西部世界(Westworld)](http://baike.baidu.com/item/%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C/16357504)很有HBO的风格：尺度很大 讲述机器人觉醒反抗人类的故事，故事很吸引人。
-</br> 
+<br> 
 
 附上他们的百度网盘地址：</br>
 
