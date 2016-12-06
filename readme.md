@@ -33,6 +33,13 @@
 * [@vzch](https://www.zhihu.com/people/excited-vczh/answers) 轮子哥，人肉翻墙到美国的微软大神，职业带逛~</br>
 * [@马前卒](https://www.zhihu.com/people/ma-qian-zu/answers)  军事历史哲学生物天文地理.......此君无所不通</br>
 
+####读书
+>平时也喜欢看点书，其实主要是高中读的，大学反而没有读很多书，挺奇怪的。
+比较喜欢</br>
+毛姆的[《月亮和六便士》](https://book.douban.com/subject/1858513/)、[《刀锋》](https://book.douban.com/subject/2035162/) </br>
+王小波的[《红拂夜奔》](https://book.douban.com/subject/3189892/)</br
+>村上春树的[《海边的卡夫卡》](https://book.douban.com/subject/2158189/)、[《舞！舞！舞！》](https://book.douban.com/subject/2174010/)</br>
+
 ***
 
 我学过一点C语言<br>
