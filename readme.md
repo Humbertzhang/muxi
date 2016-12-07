@@ -18,9 +18,10 @@
 
 附上他们的百度网盘地址：</br>
 
->*  越狱 ：[百度网盘](http://pan.baidu.com/share/link?uk=3616157110&shareid=2123699771#list/path=%2F)</br>
-*  绝命毒师：[百度网盘](http://pan.baidu.com/share/link?uk=2203926320&shareid=1645144288#list/path=%2F)</br>
-*  西部世界：[百度网盘](http://pan.baidu.com/share/link?uk=220833725&shareid=3191095298#list/path=%2F)</br>
+>
+越狱 ：[百度网盘](http://pan.baidu.com/share/link?uk=3616157110&shareid=2123699771#list/path=%2F)</br>
+绝命毒师：[百度网盘](http://pan.baidu.com/share/link?uk=2203926320&shareid=1645144288#list/path=%2F)</br>
+西部世界：[百度网盘](http://pan.baidu.com/share/link?uk=220833725&shareid=3191095298#list/path=%2F)</br>
 
 ####知乎
 
@@ -29,9 +30,10 @@
 比较喜欢的几位用户：
 
 
->* [@王陶陶](https://www.zhihu.com/people/wang-tao-tao-91-97/answers)他对于美国大选以及国际形势的观点很精彩</br>
-* [@vzch](https://www.zhihu.com/people/excited-vczh/answers) 轮子哥，人肉翻墙到美国的微软大神，职业带逛~</br>
-* [@马前卒](https://www.zhihu.com/people/ma-qian-zu/answers)  军事历史哲学生物天文地理.......此君无所不通</br>
+>
+[@王陶陶](https://www.zhihu.com/people/wang-tao-tao-91-97/answers)他对于美国大选以及国际形势的观点很精彩</br>
+[@vzch](https://www.zhihu.com/people/excited-vczh/answers) 轮子哥，人肉翻墙到美国的微软大神，职业带逛~</br>
+[@马前卒](https://www.zhihu.com/people/ma-qian-zu/answers)  军事历史哲学生物天文地理.......此君无所不通</br>
 
 ####读书
 >平时也喜欢看点书，其实主要是高中读的，大学反而没有读很多书，挺奇怪的。
