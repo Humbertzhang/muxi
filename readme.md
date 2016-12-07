@@ -9,12 +9,11 @@
 ##兴趣：
 
 ####美剧
-
-> 从[越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
+从[越狱（Prison Break）](http://baike.baidu.com/subview/36434/5381066.htm) 开始，喜欢上了看美剧。
 </br> 
-> 暑假看完了 [绝命毒师（Breaking Bad）](http://baike.baidu.com/item/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88) 真正让我震撼的一部美剧，一个高中化学老师走上制造毒品的道路。
+之前看完了 [绝命毒师（Breaking Bad）](http://baike.baidu.com/item/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88) 真正让我震撼的一部美剧，一个高中化学老师走上制造毒品的道路。
 </br> 
-> 最近在看 [西部世界(Westworld)](http://baike.baidu.com/item/%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C/16357504)很有HBO的风格：尺度很大。讲述机器人觉醒反抗人类的故事，故事很吸引人。</br>
+最近在看 [西部世界(Westworld)](http://baike.baidu.com/item/%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C/16357504)很有HBO的风格：尺度很大。讲述机器人觉醒反抗人类的故事，故事很吸引人。</br>
 
 附上他们的百度网盘地址：</br>
 
@@ -36,9 +35,11 @@
 [@马前卒](https://www.zhihu.com/people/ma-qian-zu/answers)  军事历史哲学生物天文地理.......此君无所不通</br>
 
 ####读书
->平时也喜欢看点书，其实主要是高中读的，大学反而没有读很多书，挺奇怪的。
+平时也喜欢看点书，其实主要是高中读的，大学反而没有读很多书，挺奇怪的。
+
 比较喜欢</br>
-毛姆的[《月亮和六便士》](https://book.douban.com/subject/1858513/)、[《刀锋》](https://book.douban.com/subject/2035162/) </br>
+
+>毛姆的[《月亮和六便士》](https://book.douban.com/subject/1858513/)、[《刀锋》](https://book.douban.com/subject/2035162/) </br>
 王小波的[《红拂夜奔》](https://book.douban.com/subject/3189892/)</br>
 村上春树的[《海边的卡夫卡》](https://book.douban.com/subject/2158189/)、[《舞！舞！舞！》](https://book.douban.com/subject/2174010/)</br>
 
