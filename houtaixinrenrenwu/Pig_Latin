@@ -33,8 +33,6 @@ def piglatin():
 			wordlisted = ''.join(wordlist)
 			word2.append(wordlisted)
 			print (word2)
-
 		else :
 			pass
-
-PigLatin = piglatin()
+Pig_Latin = piglatin()
