@@ -1,11 +1,12 @@
+words = input(">")
+words = words.lower()
+words = words.split(' ')
 def piglatin():
-	words = input(">")
-	words = words.lower()
-	words = words.split(' ')
+
 	word2 = []
 	for word in words:
 		wordlist = list(word)
-		if wordlist[0] == 'a'or wordlist[0] =='e'or wordlist[0] =='i'or wordlist[0] =='o'or wordlist[0] =='u':
+		if wordlist[0] in ['a','e','i','o','u']:
 			wordlist.append('hay')
 			wordlisted = ''.join(wordlist)
 			word2.append(wordlisted)
@@ -15,9 +16,24 @@ def piglatin():
 			wordlist.append('quay')
 			wordlisted = ''.join(wordlist)
 			word2.append(wordlisted)
-		elif wordlist[0] != 'a'and wordlist[0] !='e'and wordlist[0] !='i'and wordlist[0] !='o'and wordlist[0] !='u'and wordlist[0] != 'q' :
+		elif wordlist[0] == 'y':
+			c = wordlist[0]
+			wordlist.pop(0)
+			wordlist.append(c)		
 			i = 0
-			while wordlist[0] != 'a'and wordlist[0] !='e'and wordlist[0] !='i'and wordlist[0] !='o'and wordlist[0] !='u'and wordlist[0] !='y':
+			while wordlist[0]  not in ['a','e','i','o','u','y'] :
+				b = wordlist[0]
+				wordlist.pop(0)
+				wordlist.append(b)
+				i = i + 1
+				if i > len(words):
+					break
+			wordlist.append('ay')
+			wordlisted = ''.join(wordlist)
+			word2.append(wordlisted)
+		elif wordlist[0]  not in ['a','e','i','o','u','q']:
+			i = 0
+			while wordlist[0]  not in ['a','e','i','o','u','y'] :
 				a = wordlist[0]
 				wordlist.pop(0)
 				wordlist.append(a)
@@ -29,6 +45,14 @@ def piglatin():
 			word2.append(wordlisted)
 		else :
 			pass
-	word_final = ' '.join(word2)
-	print(word_final)
-Pig_Latin = piglatin()
+	word_final =' '.join(word2)
+	print (word_final)
+import time
+t1=time.time()
+########
+PigLatin = piglatin()
+########
+t2=time.time()
+t = t2 - t1
+#程序运行时间
+print (t*1000,'ms')
