@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Maybe A List </title>
+</head>
+
+<style>
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:365px;
+    width:300px;
+    float:left;
+    padding:5px;	      
+}
+</style>
+
+
+<body>
+
+<div id ="nav">
+图书畅销榜
+
+<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
+
+<ol type=I start=1>
+<div title="当我足够好，才会遇见你"><li style = "color:red"><p style ="color:red">当我足够好，才会遇见你</p></li></div>
+<HR style="border:1 dashed #987cb9" width="95%" color=#987cb9 SIZE=1>
+<div title="皮囊"><li><p style ="color:red">皮囊</p></li></div>
+<HR style="border:1 dashed #987cb9" width="95%" color=#987cb9 SIZE=1>
+<div title = "李光耀论中国与世界"><li><p style ="color:red">李光耀论中国与世界</p></li></div>
+<HR style="border:1 dashed #987cb9" width="95%" color=#987cb9 SIZE=1>
+<div title = "乖，摸摸头"><li><p>乖，摸摸头</p></li></div>
+<HR style="border:1 dashed #987cb9" width="95%" color=#987cb9 SIZE=1>
+<div title = "男女内参"><li><p>男女内参</p></li><div>
+<HR style="border:1 dashed #987cb9" width="95%" color=#987cb9 SIZE=1>
+</div>
+</ol>
+</body>
+</html>
