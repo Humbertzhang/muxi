@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Form</title>
+</head>
+<body>
+	<form>
+	头像  <button type="button">选择文件</button> 未选择任何文件 <br>
+	昵称  <input type = "text" name = "头像"> <br>
+	学历  <select name="学历">
+				<option value="大专">大专</option>
+				<option value="本科">本科</option>
+				</select>  <br>
+	性别  <input type = "radio" name = "sex" value = "male" checked> 男
+			  <input type = "radio" name = "sex" value = "famale" > 女
+			  <br>
+	爱好  <input type = "checkbox" name = "interestings" value = "film">电影
+				<input type = "checkbox" name = "interestings" value = "catagrofy">摄影
+				<input type = "checkbox" name = "interestings" value = "music">音乐
+				<input type = "checkbox" name = "interestings" value = "music">阅读
+				<br>
+	签名  <textarea name = "massage" rows = "10" cols = "30">
+				>
+				</textarea>
+				<br>
+				 <button type="button" background color = "red">  保存  </button> 
+	
+	
+
+</body>
+</html>
