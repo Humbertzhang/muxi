@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+.side {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	color: white;
+	margin: 0 auto; 
+}
+.main{
+	float: left;
+	width: 600px;
+	height: 200px;
+	background-color: blue;
+	color:white;
+	margin: 0 auto;
+}
+.blank{
+	float: left;
+	width: 10px;
+	height: 200px;
+	background-color:white;
+	margin:0 auto;
+}
+.parent {
+  overflow: auto;
+}
+.mid {
+	height :200px;
+	line-height: 200px;
+	text-align: center;    
+}
+body { 
+	font-size:40px;
+	font-family:tahoma;} 
+</style>
+<body>
+<div class = "parent"> 
+	<div class = "side">
+	<div class = "mid">
+	Side 
+	</div>
+	</div>
+
+	<div class = "blank">
+	</div>
+
+	<div class = "main">
+	<div class = "mid">
+	Main
+	</div>
+	</div>
+
+</div>
+</body>
+</html>
