@@ -17,3 +17,9 @@ class BasicTestCase(unittest.TestCase):
 
     def test_app_exist(self):
         self.assertFalse(current_app is None)
+    
+    def test_eatwhat(self):
+        response = self.client.get(
+            url_for('api.eatwhat', _external = True),
+            content_type = 'application/json')
+        self.assertTrue(response.status_code == 200)
