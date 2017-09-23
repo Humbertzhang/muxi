@@ -7,8 +7,8 @@ from random import randint
 
 @api.route('/eatwhat/', methods = ['GET'])
 def eatwhat():
-        items = ['dongyi', 'donger', '�xuezi', 'guixiangyuan','boyayuan','waimai']
-        item = items[randint(0,5)]
-        return jsonify({
-                    "location":item
-                })
+    items = ['东一', '东二', '学子', '桂香园', '博雅园', '外卖']
+    item = items[randint(0, 5)]
+    return jsonify({
+        "location": item
+    })

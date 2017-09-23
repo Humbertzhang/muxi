@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Eat Frontend</title>
+  <style>
+    button {
+      outline: 0;
+      border: 0;
+    }
+    #btn {
+      width: 80px;
+      height: 30px;
+      border-radius: 3px;
+      background-color: #000;
+      color: #fff;
+    }
+    #box {
+      margin-top: 20px;
+      width: 100px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">fetch</button>
+  <div id="box"></div>
+</body>
+
+<script>
+  var btn = document.getElementById("btn")
+  var box = document.getElementById("box")
+
+  btn.addEventListener("click", function () {
+    fetch("http://120.77.246.73:5000/api/v1.0/eatwhat/").then(res => {
+    if (res.ok) {
+      return res.json()
+    }
+  }).then(value => {
+    console.log(value)
+    var result = value.location;
+    box.innerHTML = result;
+  })
+  })
+</script>
+
+</html>
