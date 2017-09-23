@@ -8,4 +8,6 @@ from random import randint
 def eatwhat():
         items = ['dongyi', 'donger', 'xuezi', 'guixiangyuan','boyayuan','waimai']
         item = items[randint(0,5)]
-        return item
+        return jsonify({
+                    "location":item
+                })
