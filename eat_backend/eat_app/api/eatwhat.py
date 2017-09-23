@@ -1,3 +1,4 @@
+#coding:utf-8
 from flask import jsonify ,request
 from . import api
 import json
@@ -6,7 +7,7 @@ from random import randint
 
 @api.route('/eatwhat/', methods = ['GET'])
 def eatwhat():
-        items = ['dongyi', 'donger', 'xuezi', 'guixiangyuan','boyayuan','waimai']
+        items = ['dongyi', 'donger', 'åxuezi', 'guixiangyuan','boyayuan','waimai']
         item = items[randint(0,5)]
         return jsonify({
                     "location":item
