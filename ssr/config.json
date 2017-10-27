@@ -1,0 +1,11 @@
+{
+ 	"server": "45.32.93.65",
+	"server_port": 443,
+	"local_address": "127.0.0.1",
+	"local_port": 1080,
+	"password": "muxi",
+	"method": "chacha20-ietf",
+	"protocol": "auth_aes128_md5",
+	"obfs": "tls1.2_ticket_auth",
+	"obfs_param": ""
+}
