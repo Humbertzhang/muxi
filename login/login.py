@@ -89,8 +89,8 @@ def get_strange(jid1, jid2, ltid, execution):
     'user-agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36",
     }
     payload = {
-        "username":"2016210942",
-        "password":"humbert123456781",
+        "username":"2016******",
+        "password":"*",
         "lt":ltid,
         "execution": execution,
         "_eventId":"submit",
