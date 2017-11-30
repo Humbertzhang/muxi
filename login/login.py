@@ -9,7 +9,10 @@ def getjid(setcookie):
 
 def getltid(html):
     soup = BeautifulSoup(html, "html5lib")
-    return soup.find_all('input')[2]['value']
+    ltid = soup.find_all('input')[2]['value']
+    execution = soup.find_all('input')[3]['value']
+    print("ltid:" + ltid + "\nexecution:" + execution)
+    return ltid, execution
 
 def requests1():
     url = "http://one.ccnu.edu.cn/"
@@ -25,11 +28,14 @@ def requests1():
 	'upgrade-insecure-requests': "1",
 	'user-agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36",
 	'postman-token': "473bffe7-9c72-a82b-bfb8-44795ab87dee"
-	}
+    }
 
     session = requests.Session()
     session.max_redirects = 0
-    r = session.get(url, headers = headers)
+    try:
+        r = session.get(url, headers = headers)
+    except requests.exceptions.TooManyRedirects as exc:
+        r = exc.response
     print(r.headers)
     cookie = r.headers['Set-Cookie']
     
@@ -58,11 +64,10 @@ def requests2(jid1, routeportal):
     print(r.headers)
     cookie = r.headers['Set-Cookie']
     jid2 = getjid(cookie)
-    ltid = getltid(r.text)
-    print(ltid)
-    return jid2, ltid
+    ltid, execution = getltid(r.text)
+    return jid2, ltid, execution
 
-def get_strange(jid1, jid2, ltid):
+def get_strange(jid1, jid2, ltid, execution):
     url = "https://account.ccnu.edu.cn/cas/login;jsessionid=" + jid2
     querystring = {
         "service": "http://one.ccnu.edu.cn/cas/login_portal;jsessionid=" + jid1
@@ -84,22 +89,29 @@ def get_strange(jid1, jid2, ltid):
     'user-agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36",
     }
     payload = {
-        "username":"*",
-        "password":"*",
+        "username":"2016210942",
+        "password":"humbert123456781",
         "lt":ltid,
-        "execution":"e1s1",
+        "execution": execution,
         "_eventId":"submit",
         "submit":"LOGIN"
     } 
     session = requests.Session()
-    session.max_redirect = 0
-    r = session.post(url, headers = headers, params = querystring, data = payload)
-    print(r.status_code) 
+    session.max_redirect = 2
+    
+    try:
+        r = session.post(url, headers = headers, params = querystring, data = payload)
+    except requests.exceptions.TooManyRedirects as exc:
+        r = exc.response
+
+    print(r.status_code)
+    print(r.headers)
+    print(r.text) 
     
 if __name__ == '__main__':
     jid1, routeportal = requests1()
     sleep(1)
-    jid2, ltid = requests2(jid1, routeportal)
+    jid2, ltid, execution = requests2(jid1, routeportal)
     sleep(1)
     print("jid1:" + jid1 + '\n' + "jid2:" + jid2 + '\n')
-    get_strange(jid1, jid2, ltid)
+    get_strange(jid1, jid2, ltid, execution)
