@@ -7,8 +7,8 @@ from pprint import pprint
 browser = webdriver.Firefox()
 ENOUGH_WAIT_TIME = 5
 WAIT_TIME = 0.3
-UID = "2016210942"
-PSWD = "humbert123456781"
+UID = ""
+PSWD = ""
 # MOD = 1 为按课程号选课 MOD = 2 为选通核 MOD = 3 为选通选
 MOD = 1
 
