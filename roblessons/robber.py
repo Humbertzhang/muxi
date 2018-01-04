@@ -7,8 +7,8 @@ from pprint import pprint
 browser = webdriver.Firefox()
 ENOUGH_WAIT_TIME = 5
 WAIT_TIME = 0.3
-UID = ""
-PSWD = ""
+UID = "2016210942"
+PSWD = "humbert123456781"
 # MOD = 1 为按课程号选课 MOD = 2 为选通核 MOD = 3 为选通选
 MOD = 1
 
@@ -25,14 +25,14 @@ def init():
 #按课程号选课
 def choose_by_key():
     #想选的ID或任何其他查询条件
-    idss = ["没有这个课", "毛泽东思想", "电影"]
+    idss = ["电影"]
     for ids in idss:
         browser.find_element_by_name("searchInput").send_keys(ids)
         browser.find_element_by_name("query").click()
 
         try:
             #第一个选课的按钮若没有则异常
-            browser.find_element_by_xpath('//*[@id="tr_5F2EB44EA3CC4226E0531D50A8C0CBB4"]/td[21]/button').click()
+            browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[2]/table/tbody/tr[1]/td[21]/button').click()
         except:
             print(ids + "课程选课发生异常")
             browser.refresh()
@@ -44,7 +44,7 @@ def choose_by_key():
             print(ids + "课程选课成功")
         browser.refresh()
         time.sleep(ENOUGH_WAIT_TIME)
-        
+        browser.find_element_by_xpath('//*[@id="searchBox"]/div/div[2]/div/div/div/div/a/span')
 
 #通核
 def choose_th():
@@ -59,12 +59,12 @@ def choose_tx():
 
 def choose_loop():
     #默认选项第一项，如果为马克思之类很多课需要手动改一共有多少
-    coursesNum = 1
+    coursesNum = 15
     while True:
-        i = 0
+        i = 1
         while i < coursesNum:
             time.sleep(WAIT_TIME)
-            browser.find_element_by_xpath('//*[@id="tr_5F2EB44EA3CC4226E0531D50A8C0CBB4"]/td[21]/button').click()
+            browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[2]/table/tbody/tr['+ str(i) + ']/td[21]/button').click()
             try:
                 #如果没有叉号则选课成功了
                 browser.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/button').click()
