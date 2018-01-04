@@ -6,9 +6,9 @@ from pprint import pprint
 ###GLOBALs###
 browser = webdriver.Firefox()
 ENOUGH_WAIT_TIME = 5
-WAIT_TIME = 1
-UID = "X"
-PSWD = "X"
+WAIT_TIME = 0.3
+UID = ""
+PSWD = ""
 # MOD = 1 为按课程号选课 MOD = 2 为选通核 MOD = 3 为选通选
 MOD = 1
 
@@ -23,12 +23,28 @@ def init():
     time.sleep(ENOUGH_WAIT_TIME)
 
 #按课程号选课
-def choose_by_id():
-    #想选的ID
-    ids = "40152005"
-    browser.find_element_by_xpath('//*[@id="searchBox"]/div/div[2]/div/div/div/div/a/span').click()
-    browser.find_element_by_xpath('/html/body/div[1]/div/div/div[1]/div/div[1]/div/div/div/div/input').send_keys(ids)
-    choose_loop()
+def choose_by_key():
+    #想选的ID或任何其他查询条件
+    idss = ["没有这个课", "毛泽东思想", "电影"]
+    for ids in idss:
+        browser.find_element_by_name("searchInput").send_keys(ids)
+        browser.find_element_by_name("query").click()
+
+        try:
+            #第一个选课的按钮若没有则异常
+            browser.find_element_by_xpath('//*[@id="tr_5F2EB44EA3CC4226E0531D50A8C0CBB4"]/td[21]/button').click()
+        except:
+            print(ids + "课程选课发生异常")
+            browser.refresh()
+            time.sleep(ENOUGH_WAIT_TIME)
+            continue
+        #点击选课 和 点击叉号 循环
+        status = choose_loop()
+        if status:
+            print(ids + "课程选课成功")
+        browser.refresh()
+        time.sleep(ENOUGH_WAIT_TIME)
+        
 
 #通核
 def choose_th():
@@ -42,23 +58,24 @@ def choose_tx():
     choose_loop()
 
 def choose_loop():
+    #默认选项第一项，如果为马克思之类很多课需要手动改一共有多少
+    coursesNum = 1
     while True:
-        time.sleep(WAIT_TIME)
-        #查询
-        browser.find_element_by_xpath("/html/body/div[1]/div/div/div[1]/div/div[1]/div/div/div/div/span/button[1]").click()
-        #点击选课后判断是否选到了
-        browser.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[2]/table/tbody/tr/td[21]/button").click()
-        #选到了之后print一条信息之后，关闭对话框，继续再抢
-        #没选到就直接关闭对话框
-        try:
-            browser.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/button').click()
-        except:
-            print("选到了")
+        i = 0
+        while i < coursesNum:
+            time.sleep(WAIT_TIME)
+            browser.find_element_by_xpath('//*[@id="tr_5F2EB44EA3CC4226E0531D50A8C0CBB4"]/td[21]/button').click()
+            try:
+                #如果没有叉号则选课成功了
+                browser.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/button').click()
+            except:
+                return True
+            i+=1
 
 if __name__ == '__main__':
     init()
     if MOD == 1:
-        choose_by_id()
+        choose_by_key()
     elif MOD == 2:
         choose_th()
     elif MOD == 3:
