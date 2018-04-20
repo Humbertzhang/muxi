@@ -72,7 +72,7 @@ done
 echo "配置kubelet"
 Test cat > /etc/systemd/system/kubelet.service.d/20-pod-infra-image.conf <<EOF
 [Service]
-Environment="KUBELET_EXTRA_ARGS=--pod-infra-container-image=mirrorgooglecontainers/pause-amd64:3.0"
+Environment="KUBELET_EXTRA_ARGS=--pod-infra-container-image=gcr.io/google_containers/pause-amd64:3.0"
 EOF
 Test sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
@@ -82,7 +82,7 @@ Test systemctl start docker
 Test systemctl start kubelet
 
 echo "初始化集群"
-export KUBE_REPO_PREFIX="mirrorgooglecontainers"
+export KUBE_REPO_PREFIX="gcr.io/google_containers"
 export KUBE_ETCD_IMAGE="registry.cn-hangzhou.aliyuncs.com/szss_k8s/etcd-amd64:3.0.17"
 Test kubeadm init  --kubernetes-version=v1.7.5 --pod-network-cidr=10.244.0.0/12
 
