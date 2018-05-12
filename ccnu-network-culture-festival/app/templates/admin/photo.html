@@ -1,0 +1,54 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+{% block title %}摄影作品管理{% endblock %}
+
+{% block content %}
+<h1>摄影作品管理</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>上传名</th>
+        <th>实际名</th>
+        <th>body</th>
+        <th>body_html</th>
+        <th>描述</th>
+        <th>video_url</th>
+        <th>upload_url</th>
+        <th>上传时间</th>
+        <th>作者</th>
+        <th>赞数</th>
+        <th>是否通过审核</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for photo in photos %}
+    <tr>
+        <td>{{photo.id}}</td>
+        <td>{{photo.upload_name}}</td>
+        <td>{{photo.present_name}}</td>
+        <td>{{photo.body}}</td>
+        <td>{{photo.body_html}}</td>
+        <td>{{photo.description}}</td>
+        <td>{{photo.video_url}}</td>
+        <td>{{photo.upload_url}}</td>
+        <td>{{photo.a_time}}</td>
+        <td>{{photo.author_name}}</td>
+        <td>{{photo.liked_count}}</td>
+        <td>{{photo.is_confirm}}</td>
+        <td><button type="button" class="btn btn-success">通过</button>
+            <br><br><button type="button" class="btn btn-danger">删除</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.photo_manage") }}
+</div>
+{% endblock %}
+{% block script %}
+<script src="/static/js/adminjs/photo_manage.js"></script>
+{% endblock %}

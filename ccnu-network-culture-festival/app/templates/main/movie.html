@@ -1,0 +1,103 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ movie.present_name }}-{{ movie.author_name }}{% endblock %}
+	{% block page_content %}
+	<div class="second_box">
+		<div class="second_head">
+			<span class="second_head_title">{{ movie.present_name }}</span>
+			<span class="second_head_author">{{ movie.a_time }}/{{ movie.author_name }}</span>
+		</div>
+		<p class="second_description">{{ movie.description }}</p>
+        <div class="second_content second_media">
+					<a class="img_url" href="{{movie.video_url}}"></a>
+					<a  class="click_to_view" herf="{{movie.video_url}}">点击观看</a>
+				</div>
+	    <!-- 多说评论框 start -->
+	    <div class="ds-thread" data-thread-key="m{{ movie.id }}" data-title="{{ movie.present_name }}" data-url="{{ url_for('main.get_movie', id=movie.id) }}"></div>
+	    <!-- 多说评论框 end -->
+	    <!-- 多说公共JS代码 start  -->
+	    <script type="text/javascript">
+	    var duoshuoQuery = {short_name:"wenhuajie"};
+		    (function() {
+			    var ds = document.createElement('script');
+		    	ds.type = 'text/javascript';ds.async = true;
+	    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		    	ds.charset = 'UTF-8';
+			    (document.getElementsByTagName('head')[0] 
+	    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		    })();
+	    	</script>
+	    <!-- 多说公共JS代码 end -->
+    </div>
+	{% endblock %}
+	{% block captcha %}
+	<div class="c_container" id="captcha_container">
+		<div class="c_content">
+			<form method="post" action="{{ url_for('main.validate_capthca') }}">
+				<div class="c_box">
+				<div id="captcha"></div>
+				<div class="c_box">
+					<!-- <button id="submit-button">提交</button> -->
+				</div>
+				<script src="http://static.geetest.com/static/tools/gt.js"></script>
+				<script>
+				    // var handler = function (captchaObj) {
+				    //      // 将验证码加到id为captcha的元素里
+				    //      captchaObj.appendTo("#captcha");
+				    //  };
+				    // $.ajax({
+				    //     // 获取id，challenge，success（是否启用failback）
+				    //     url: "/main/getcaptcha",
+				    //     type: "get",
+				    //     dataType: "json", // 使用jsonp格式
+				    //     success: function (data) {
+				    //         // 使用initGeetest接口
+				    //         // 参数1：配置参数，与创建Geetest实例时接受的参数一致
+				    //         // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+				    //         initGeetest({
+				    //             gt: data.gt,
+				    //             challenge: data.challenge,
+				    //             product: "embed", // 产品形式
+				    //             offline: !data.success
+				    //         }, handler);
+				    //     }
+				    // });
+				</script>
+				</div>
+				<div class="c_confirm"><button id="c_confirm_btn">确认</button></div>
+			</form>
+		</div>
+	</div>
+	{% endblock %}
+	{% block vote_button %}
+	<div class="second_vote">
+		<button class="second_vote_bt" id="vote_movie">投票</button>
+	</div>
+	<!-- <script src="../../../static/js/second.js"></script> -->
+	<script>
+			var movie = document.getElementById('vote_movie');
+			var id = window.location.pathname.split('/')[3];
+			movie.addEventListener("click", function(){
+			fetch("/main/movie/" + id + "/vote/", {
+				method: 'GET',
+			}).then(res => {
+				if (res.ok) {
+					alert("投票成功！")
+				} else {
+					alert("每个 IP 仅能投一次！")
+				}
+			})
+		});
+		</script>
+	{% endblock %}
+	{% block flash_message %}
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<div class="submite_flash" id="submit_flash">
+			{% for message in messages %}
+			<div class="submite_message">{{ message }}</div>
+			{% endfor %}
+			<div class="submit_close" id="submit_close">x</div>
+		</div>
+		{% endif %}
+		{% endwith %}
+	{% endblock %}

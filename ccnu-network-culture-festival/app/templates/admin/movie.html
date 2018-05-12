@@ -1,0 +1,56 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+{% block title %}微电影管理{% endblock %}
+
+{% block content %}
+<h1>微视频管理</h1>
+
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>上传名</th>
+        <th>实际名</th>
+        <th>body</th>
+        <th>body_html</th>
+        <th>描述</th>
+        <th>video_url</th>
+        <th>upload_url</th>
+        <th>上传时间</th>
+        <th>作者</th>
+        <th>赞数</th>
+        <th>是否通过审核</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for movie in movies %}
+    <tr>
+        <td>{{movie.id}}</td>
+        <td>{{movie.upload_name}}</td>
+        <td>{{movie.present_name}}</td>
+        <td>{{movie.body}}</td>
+        <td>{{movie.body_html}}</td>
+        <td>{{movie.description}}</td>
+        <td>{{video_url}}</td>
+        <td>{{movie.upload_url}}</td>
+        <td>{{movie.a_time}}</td>
+        <td>{{movie.author_name}}</td>
+        <td>{{movie.liked_count}}</td>
+        <td>{{movie.is_confirm}}</td>
+        <td><button type="button" class="btn btn-success">通过</button>
+            <br><br><button type="button" class="btn btn-danger">删除</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.movie_manage") }}
+</div>
+
+{% endblock %}
+{% block script %}
+<script src="/static/js/adminjs/movie_manage.js"></script>
+{% endblock %}

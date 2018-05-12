@@ -1,0 +1,58 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+
+{% block title %}网文管理{% endblock %}
+
+{% block content %}
+<h1>网络文章管理</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>上传名</th>
+        <th>实际名</th>
+        <th>body</th>
+        <th>body_html</th>
+        <th>描述</th>
+        <th>video_url</th>
+        <th>upload_url</th>
+        <th>上传时间</th>
+        <th>作者</th>
+        <th>赞数</th>
+        <th>是否通过审核</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for article in articles %}
+    <tr>
+        <td>{{article.id}}</td>
+        <td>{{article.upload_name}}</td>
+        <td>{{article.present_name}}</td>
+        <td>{{article.body}}</td>
+        <td>{{article.body_html}}</td>
+        <td>{{article.description}}</td>
+        <td>{{video_url}}</td>
+        <td>{{article.upload_url}}</td>
+        <td>{{article.a_time}}</td>
+        <td>{{article.author_name}}</td>
+        <td>{{article.liked_count}}</td>
+        <td>{{article.is_confirm}}</td>
+        <td><button type="button" class="btn btn-success">通过</button>
+            <br><br><button type="button" class="btn btn-danger">删除</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.article_manage") }}
+</div>
+{% endblock %}
+
+
+{% block script %}
+<script src="/static/js/adminjs/article_manage.js"></script>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+{% block title %}网络创新创业作品管理{% endblock %}
+
+{% block content %}
+<h1>网络创新创业作品管理</h1>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>上传名</th>
+        <th>实际名</th>
+        <th>body</th>
+        <th>body_html</th>
+        <th>描述</th>
+        <th>video_url</th>
+        <th>upload_url</th>
+        <th>上传时间</th>
+        <th>作者</th>
+        <th>赞数</th>
+        <th>是否通过审核</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for startup in startups %}
+    <tr>
+        <td>{{startup.id}}</td>
+        <td>{{startup.upload_name}}</td>
+        <td>{{startup.present_name}}</td>
+        <td>{{startup.body}}</td>
+        <td>{{startup.body_html}}</td>
+        <td>{{startup.description}}</td>
+        <td>{{video_url}}</td>
+        <td>{{startup.upload_url}}</td>
+        <td>{{startup.a_time}}</td>
+        <td>{{startup.author_name}}</td>
+        <td>{{startup.liked_count}}</td>
+        <td>{{startup.is_confirm}}</td>
+        <td><button type="button" class="btn btn-success">通过</button>
+            <br><br><button type="button" class="btn btn-danger">删除</button></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.startup_manage") }}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/adminjs/startup_manage.js"></script>
+{% endblock %}

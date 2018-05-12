@@ -1,0 +1,56 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+{% block title %}微课管理{% endblock %}
+
+{% block content %}
+<h1>微课管理</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>上传名</th>
+        <th>实际名</th>
+        <th>body</th>
+        <th>body_html</th>
+        <th>描述</th>
+        <th>video_url</th>
+        <th>upload_url</th>
+        <th>上传时间</th>
+        <th>作者</th>
+        <th>赞数</th>
+        <th>是否通过审核</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+    <tr>
+        <td>{{course.id}}</td>
+        <td>{{course.upload_name}}</td>
+        <td>{{course.present_name}}</td>
+        <td>{{course.body}}</td>
+        <td>{{course.body_html}}</td>
+        <td>{{course.description}}</td>
+        <td>{{video_url}}</td>
+        <td>{{course.upload_url}}</td>
+        <td>{{course.a_time}}</td>
+        <td>{{course.author_name}}</td>
+        <td>{{course.liked_count}}</td>
+        <td>{{course.is_confirm}}</td>
+        <td><button type="button" class="btn btn-success">通过</button>
+            <br><br><button type="button" class="btn btn-danger">删除</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.course_manage") }}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/adminjs/course_manage.js"></script>
+{% endblock %}

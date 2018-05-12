@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../static/img/favicon.ico" type="image/x-icon" />
+    <title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <!-- <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> -->
+</head>
+<body>
+	<div class="content">
+		{% block flash_message %}{% endblock %}
+		{% block guide %}
+			<div class="guide">
+				<div class="button_list">
+                    <button class="first first_page" id="first_page" onclick="location.href='/main/'">首页</button><button class="second upload" id="upload" onclick="location.href='/main/upload'">作品上传</button><button class="third rank" id="rank" onclick="location.href='/main/rank'">票数排行</button>
+				</div>
+			</div>
+		{% endblock %}
+		{% block page_content %}{% endblock %}
+	</div>
+	{% block captcha %}{% endblock %}
+	{% block vote_button %}{% endblock %}
+</body>
+</html>

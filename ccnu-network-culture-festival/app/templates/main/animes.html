@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %} 
+{% block title %}动 漫{% endblock %}
+{% block page_content %}
+		<div class="index_tu index_morecontent">
+		<div class="index_title">
+			<div class="index_tag tag2">动漫</div>
+		</div>
+		<div class="index_tu_box">
+			{% for anime in animes %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_anime', id=anime.id) }}"><img src="{{ anime.upload_url }}"></a></div>
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_anime', id=anime.id) }}">{{ anime.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ anime.a_time }}</span>
+							<span>{{ anime.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ anime.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="index_tu_content index_blank"></div>
+			<div class="index_tu_content index_blank"></div>
+		</div>
+	</div>
+{% endblock %}

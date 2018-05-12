@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% block title %}摄 影{% endblock %}
+{% block page_content %}
+	<div class="index_tu index_morecontent">
+		<div class="index_title">
+			<div class="index_tag tag2">摄影</div>
+		</div>
+		<div class="index_tu_box">
+			{% for photo in photos %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_photo', id=photo.id) }}"><img src="{{ photo.first_photo }}"></a></div>
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_photo', id=photo.id) }}">{{ photo.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ photo.a_time }}</span>
+							<span>{{ photo.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ photo.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="index_tu_content index_blank"></div>
+			<div class="index_tu_content index_blank"></div>
+		</div>
+	</div>
+{% endblock %}

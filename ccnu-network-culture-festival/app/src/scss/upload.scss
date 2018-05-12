@@ -1,0 +1,98 @@
+$upload-height:35px;
+$upload-sub-bgc:#33c157;
+$upload-form-bgc:#ffffff;
+
+.upload-main{
+	width: 820px;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 6%;
+	position: relative;
+}
+label{
+	display: inline-block;;
+	height: $upload-height;
+	text-align: center;
+	vertical-align: middle;
+	line-height: $upload-height;
+}
+.upload_label{
+	vertical-align: top;
+	letter-spacing: 15px;
+}
+.upload-author,.upload-title,.upload-class,.upload-addfile{
+	margin-bottom: 35px;
+}
+.upload-title-form,.upload-author-form{
+	margin-left: 35px;
+	width: 508px;
+	height: $upload-height;
+	border: none;
+	outline: medium;
+	box-shadow: 1px 1px #c9c9c9;
+	background: $upload-form-bgc;
+}
+.upload-class-second{
+	margin-left: 85px;
+	line-height: $upload-height;
+}
+.upload-class-second-spe{
+	display: inline-block;
+	margin-bottom: 10px;
+	vertical-align: bottom;
+}
+.upload-class-choice{
+	margin-left: 35px;
+}
+.upload-file-form{
+	width: 700px;
+	height: $upload-height;
+	background-color: $upload-form-bgc;
+	margin-left: 40px;
+	border: none;
+	outline: medium;
+}
+.upload-submite{
+	display: block;
+	width: 190px;
+	position: absolute;
+	height: $upload-height;
+	background: $upload-sub-bgc;
+	font-size: 25px;
+	left:50%;
+	margin-left: -95px;
+	color:#ffffff;
+	margin-bottom: 50px;
+}
+.flashes{
+	position: absolute;
+	width: 200px;
+	bottom: 10px;
+	left: 50%;
+	text-align: center;
+	margin-left: -100px;
+	list-style: none;
+}
+.uploadfile{
+	margin-left: -75px;
+	width: 150px;
+	height: 40px;
+	vertical-align: middle;
+}
+.upload-addurl{
+	display: block;
+	margin-left: 150px;
+	margin-bottom: 30px;
+	letter-spacing: 10px;
+}
+.textarea-form{
+	padding: 10px;
+	width: 700px;
+	height: 100px;
+}
+.choice-margin{
+	margin-left: 50px;
+}
+
+
+

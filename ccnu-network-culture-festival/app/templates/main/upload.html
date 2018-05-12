@@ -1,0 +1,64 @@
+	{%extends 'main/base.html' %}
+    {% block title %}上传文件{% endblock %}
+	{% block page_content %}
+	<div class="upload-main">
+		<form action="" method="post" enctype="multipart/form-data">
+			<div class="upload-author">
+				<label class="upload_label">必填:作    者</label>
+				<input class="upload-author-form" name="author_name">
+			</div>
+			<div class="upload-title">
+				<label class="upload_label">必填:标    题</label>
+				<input class="upload-title-form" name="file_name">
+			</div>
+			<div class="upload-class">
+				<label class="upload_label">必填:类    别</label>
+				<div class="upload-class-second-spe">
+					<input name="upload-class-choice" class="upload-class-choice" type="radio" value="movie">      微视频  
+					<input name="upload-class-choice" class="upload-class-choice" type="radio" value="article">      网文  
+				</div>
+				<div class="upload-class-second">
+					<input name="upload-class-choice" class="upload-class-choice" type="radio" value="anime">      动漫  
+					<input name="upload-class-choice" class="upload-class-choice choice-margin" type="radio" value="photo">      摄影 
+				</div>
+				<div class="upload-class-second">
+					<input name="upload-class-choice" class="upload-class-choice" type="radio" value="course">      微课程 
+					<input name="upload-class-choice" class="upload-class-choice" type="radio" value="startup">      网络创新创业 
+				</div>
+			</div>
+			<div class="upload-title">
+				<label class="upload_label">必填:描    述</label>
+				<textarea name="description" class="upload-title-form textarea-form"></textarea>
+			</div>
+			<div class="upload-addfile">
+				<label class="uploadfile">上 传 附 件（网文、摄影、创新创业类型请上传.zip或.rar格式附件，大小不超过30M）</label>
+				<input type="file" name="file" class="upload-file-form">
+			</div>
+            <div class="upload-addfile">
+                <label class="uploadfile">视 频 链 接 (动漫、微视频、微课程类别请将视频上传到优酷等视频网站中，复制视频浏览器地址栏链接写入框中)</label>
+                <input class="upload-file-form" name="upload_url">
+			</div>
+
+			<div class="upload-addfile">
+                <label class="uploadfile">必填:图 片 链 接 (展示在首页的图片链接)</label>
+                <input class="upload-file-form" name="img_url">
+			</div>
+
+			<button type="submit" class="upload-submite">提交</button>
+		</form>
+	</div>
+	<script src="../../static/js/upload.js"></script>
+	{% endblock %}
+
+	{% block flash_message %}
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<div class="submite_flash" id="submit_flash">
+			{% for message in messages %}
+			<div class="submite_message">{{ message }}</div>
+			{% endfor %}
+			<div class="submit_close" id="submit_close">x</div>
+		</div>
+		{% endif %}
+		{% endwith %}
+	{% endblock %}

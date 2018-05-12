@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% block title %}微视频{% endblock %}
+{% block page_content %}
+	<div class="index_tu index_morecontent">
+		<div class="index_title">
+			<div class="index_tag tag1">微视频</div>
+		</div>
+		<div class="index_tu_box">
+			{% for movie in movies %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_movie', id=movie.id) }}"><img src="{{ movie.upload_url }}"></a></div>
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_movie', id=movie.id) }}">{{ movie.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ movie.a_time }}</span>
+							<span>{{ movie.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ movie.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="index_tu_content index_blank"></div>
+			<div class="index_tu_content index_blank"></div>
+		</div>
+	</div>
+{% endblock %}

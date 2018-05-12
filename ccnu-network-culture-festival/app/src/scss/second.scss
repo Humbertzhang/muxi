@@ -1,0 +1,251 @@
+$background-color: #f5f5f5;
+$underlineb-bc:#c9c9c9;
+$font-size:39.58px 25px 22.92px 20.83px;
+$font-color:#f5f5f5 #c9c9c9 #626262;
+.second_box{
+	width: 100%;
+	padding:0 10%;
+	margin-bottom: 100px;
+}
+
+.second_head{
+	display: block;
+	margin-top: 50px;
+	border-bottom: 1px solid $underlineb-bc;
+	}
+.second_content{
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	text-align: left;
+	line-height: 50px;
+	font-size:nth($font-size,4);
+	font-family: "Microsoft YaHei";
+	color: nth($font-color,3);
+
+}
+.second_content p{
+	text-indent: 40px;
+}
+.second_media{
+	text-align: center;
+	video {
+		max-width: 100%;
+	}
+}
+
+.second_head_title{
+	font-family: "SimSun" 宋体;
+	font-size:nth($font-size,1);
+	color: nth($font-color,3);
+	line-height: 50px;
+}
+.second_head_author{	
+	margin-left: 10px;
+    // font-size: 25px;
+    color: $underlineb-bc;
+    font-size:nth($font-size,4);
+    font-family: "Microsoft YaHei";
+    color: nth($font-color,2);
+    line-height: 40px;
+	}
+.second_notice{
+	line-height: 40px;
+	font-size: nth($font-size,2);
+}
+.second_notice_time{
+	font-size: 16.67px;
+}
+
+.ds-powered-by{
+	display: none;
+}
+.second_vote{
+	position: fixed;
+	bottom: 0px;
+	height: 83px;
+	width: 100%;
+	border-top: 1px solid $underlineb-bc;
+	background-color: $background-color;
+	z-index: 300;
+	button{
+		position: absolute;
+		height: 40px;
+		width: 200px;
+		display: block;
+		top: 50%;
+		margin-top: -20px;
+		left:50%;
+		margin-left: -100px;
+		background-color: #33c157;
+		color: #ffffff;
+		font-size:nth($font-size,2);
+		font-family: "Microsoft YaHei";
+		color: nth($font-color,1);
+	}
+}
+.c_container{
+	display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 500;
+    background: rgba(41, 47, 51, 0.7);
+}
+  .c_content{
+    width: 100%;
+    margin: 200px auto;
+  }
+  .c_box{
+    width:300px;
+    margin: -80px auto;
+  }
+#c_confirm_btn{
+	position: absolute;
+	top: 400px;
+  	left: 50%;
+  	margin-left: -40px;
+	width: 80px;
+  	height: 40px;
+  	font-size: 20px;
+  	color:#c9c9c9;
+  	background-color: #33c157;
+}
+.submite_flash{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 30px;
+	background-color: #33c157;
+	text-align: center;
+	list-style: none;
+	font-size: 20px;
+	z-index: 350;
+	line-height: 30px;
+	color: #f5f5f5;
+	overflow: hidden;
+}
+.submite_message{
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	display: inline-block;
+	width: 200px;
+	
+}
+.submit_close{
+	width: 20px;
+	float: right;
+	line-height: 30px;
+	color: #f5f5f5;
+	display: block;
+	cursor: pointer;
+}
+.second_download{
+	margin:0 auto;
+	display: block;
+	background-color: #207479;
+	color: #ffffff;
+	line-height: 50px;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	font-size: 20px;
+}
+.second_description{
+	margin: 20px 50px;
+	line-height: 30px;
+	font-style: italic;
+	text-indent:50px;
+}
+
+.banner{
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+	img {
+		height: 100%;
+	}
+	.banner_img {
+		width: 100%;
+		height: 450px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		visibility: hidden;
+	}
+	.current {
+	    visibility: visible;
+	}
+	.switch_bt {
+		margin-top: 450px;
+		left: 50%;
+		transform:translate(-11px);
+		font-size: 0;
+	}
+	.dot {
+		width: 11px;
+		height: 11px;
+		display: inline-block;
+		border: 1px solid rgb(132, 169, 224);
+		border-radius: 50%;
+		margin-right: 10px;
+		&:hover {
+			background:rgb(132, 169, 224);
+		}
+	}
+	.current_dot {
+		background:rgb(132, 169, 224);
+	}
+	.dot:last-child {
+		margin-right: 0;
+	}
+}
+.rtl_prev  {
+	-webkit-animation: r_t_l_next .6s ease both;
+	-moz-animation: r_t_l_next .6s ease both;
+	animation: r_t_l_next .6s ease both;
+}
+
+.rtl_next {
+	-webkit-animation: r_t_l_prev .6s ease both;
+	-moz-animation: r_t_l_prev .6s ease both;
+	animation: r_t_l_prev .6s ease both;
+}
+.ltr_prev  {
+	-webkit-animation: l_t_r_next .6s ease both;
+	-moz-animation: l_t_r_next .6s ease both;
+	animation: l_t_r_next .6s ease both;
+}
+.ltr_next {
+	-webkit-animation: l_t_r_prev .6s ease both;
+	-moz-animation: l_t_r_prev .6s ease both;
+	animation: l_t_r_prev .6s ease both;
+}
+@keyframes l_t_r_prev {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes l_t_r_next {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes r_t_l_prev {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes r_t_l_next {
+  from {
+    transform: translateX(100%);
+  }
+}

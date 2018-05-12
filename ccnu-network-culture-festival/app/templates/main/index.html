@@ -1,0 +1,190 @@
+{% extends 'main/base.html' %}
+{% block title %}文化节{% endblock %}
+{% block page_content %}
+	<div class="index_banner">
+		<img class="index_banner_img" src="/static/img/banner1.png">
+	</div>
+	<div class="index_notice">
+		<div class="index_title">
+			<div class="index_tag tag1">通知</div>
+			<a class="index_more" href="{{ url_for('main.notices') }}">更多 ></a>
+		</div>
+		<div class="index_notice_box">
+		{% for notice in notices %}
+			<div class="index_notice_content">
+                <div class="index_notice_dot"></div>
+				<a class="index_notice_time">{{ notice.a_time }}</a>
+                <div class="index_notice_line"><a href="{{ url_for('main.get_notice', id=notice.id) }}">{{ notice.name }}</a></div>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+
+	<div class="index_tu">
+		<div class="index_title">
+			<div class="index_tag tag2">微课程</div>
+			<a class="index_more" href="{{ url_for('main.courses') }}">更多 ></a>
+		</div>
+		<div class="index_tu_box">
+			{% for course in courses %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_course', id=course.id) }}"><img src="http://ohr9krjig.bkt.clouddn.com/whj/u.png"></a></div>
+				<!--<div class="index_tu_img"><a href="{{ url_for('main.get_course', id=course.id) }}"><img src="{{ course.upload_url }}"></a></div>-->
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_course', id=course.id) }}">{{ course.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ course.a_time }}</span>
+							<span>{{ course.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ course.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="index_tu">
+		<div class="index_title">
+			<div class="index_tag tag2">摄影</div>
+			<a class="index_more" href="{{ url_for('main.photos') }}">更多 ></a>
+		</div>
+		<div class="index_tu_box">
+			{% for photo in photos %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_photo', id=photo.id) }}"><img src="http://ohr9krjig.bkt.clouddn.com/whj/c.png"></a></div>
+				<!--<div class="index_tu_img"><a href="{{ url_for('main.get_photo', id=photo.id) }}"><img src="{{ photo.first_photo }}"></a></div>-->
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_photo', id=photo.id) }}">{{ photo.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ photo.a_time }}</span>
+							<span>{{ photo.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ photo.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="index_tu">
+		<div class="index_title">
+			<div class="index_tag tag1">动漫</div>
+			<a class="index_more" href="{{ url_for('main.animes') }}">更多 ></a>
+		</div>
+		<div class="index_tu_box">
+			{% for anime in animes %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_anime', id=anime.id) }}"><img src="http://ohr9krjig.bkt.clouddn.com/whj/n.png"></a></div>
+				<!--<div class="index_tu_img"><a href="{{ url_for('main.get_anime', id=anime.id) }}"><img src="{{ anime.upload_url }}"></a></div>-->
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_anime', id=anime.id) }}">{{ anime.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ anime.a_time }}</span>
+							<span>{{ anime.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ anime.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="index_tu">
+		<div class="index_title">
+			<div class="index_tag tag1">微视频</div>
+			<a class="index_more" href="{{ url_for('main.movies') }}">更多 ></a>
+		</div>
+		<div class="index_tu_box">
+			{% for movie in movies %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_movie', id=movie.id) }}"><img src="{{ movie.img_url }}"></a></div>
+				<!-- <div class="index_tu_img"><a href="{{ url_for('main.get_movie', id=movie.id) }}"><img src="{{ movie.upload_url }}"></a></div> -->
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_movie', id=movie.id) }}">{{ movie.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ movie.a_time }}</span>
+							<span>{{ movie.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ movie.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="index_article">
+		<div class="index_title">
+			<div class="index_tag tag2">网文</div>
+			<a class="index_more" href="{{ url_for('main.articles') }}">更多 ></a>
+		</div>
+		<div class="index_article_box">
+			{% for article in articles %}
+			<div class="index_article_content">
+				<div class="index_article_line">
+					<a class="index_article_title" href="{{ url_for('main.get_article', id=article.id) }}">{{ article.present_name }}</a>
+					<div class="index_article_info">
+						<div class="index_author_name">{{ article.author_name }} ／文</div>
+						<div class="index_liked_count">{{ article.liked_count }}</div>
+						<div class="index_timestamp">{{ article.a_time }}</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+
+	<div class="index_tu">
+		<div class="index_title">
+			<div class="index_tag tag1 longtag">网络创新创业</div>
+			<a class="index_more" href="{{ url_for('main.startups') }}">更多 ></a>
+		</div>
+		<div class="index_tu_box">
+			{% for startup in startups %}
+			<div class="index_tu_content">
+				<div class="index_tu_img"><a href="{{ url_for('main.get_startup', id=startup.id) }}"><img src="http://ohr9krjig.bkt.clouddn.com/whj/u.png"></a></div>
+				<!--<div class="index_tu_img"><a href="{{ url_for('main.get_startup', id=startup.id) }}"><img src="{{ startup.upload_url }}"></a></div>-->
+				<div class="index_tu_info_box">
+					<div class="index_tu_info">
+						<div class="index_tu_title_name"><a href="{{ url_for('main.get_startup', id=startup.id) }}">{{ startup.present_name }}</a>
+						</div>
+						<div class="index_tu_time_name">
+							<span>{{ startup.a_time }}</span>
+							<span>{{ startup.author_name }}</span>
+						</div>
+					</div>
+					<div class="index_tu_like">
+						<img src="../../static/img/heart.png">
+						<div class="index_liked_count"><a>{{ startup.liked_count }}</a></div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<script src="../../static/js/index.js"></script>
+ {% endblock %}

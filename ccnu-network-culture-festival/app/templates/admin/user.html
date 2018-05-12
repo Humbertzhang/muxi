@@ -1,0 +1,59 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+{% block title %}用户管理{% endblock %}
+
+{% block content %}
+<h1>用户管理</h1>
+<a href="/admin/new-user/" class="pull-right h5" style="color: #2aabd2">创建新用户</a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>用户邮箱</th>
+        <th>用户角色</th>
+        <th>操作</th>
+    </tr
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        {% if user.role_id == 1 %}
+        <td>协管员</td>
+        {% else %}
+        {% if user.role_id == 2 %}
+        <td>管理员</td>
+        {% else %}
+        <td>普通用户</td>
+        {% endif %}
+        {% endif %}
+        <td><!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    变换角色 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" class="User">User</a></li>
+    <li><a href="#" class="Moderator">Moderator</a></li>
+    <li><a href="#" class="Admin">Administrator</a></li>
+  </ul>
+</div>&nbsp;&nbsp;<button type="button" class="btn btn-danger">删除该用户</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,"admin.user_manage") }}
+</div>
+{% endblock %}
+
+
+{% block script %}
+<script src="/static/js/adminjs/user_manage.js"></script>
+{% endblock %}

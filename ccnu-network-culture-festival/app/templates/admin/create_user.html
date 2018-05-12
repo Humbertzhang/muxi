@@ -1,0 +1,21 @@
+{% extends "admin/custom_base.html" %}
+{% import "admin/_macros.html" as macros %}
+
+{% block title %}创建新用户{% endblock %}
+
+{% block content %}
+<h1>创建新用户</h1>
+
+<form action="/admin/new-user/" method="post">
+    {{ form.hidden_tag() }}
+    {{form.username.label()}}<br>{{form.username()}}<br>
+    {{form.password.label()}}<br>{{form.password()}}<br>
+    {{form.password2.label()}}<br>{{form.password2()}}<br>
+    {{form.user_kind.label()}}<br>{{form.user_kind()}}<br>
+    {{form.email.label()}}<br>{{form.email()}}<br>
+    {{form.submit()}}
+</form>
+{% endblock %}
+{% block script %}
+
+{% endblock %}
