@@ -9,8 +9,8 @@
 		<p class="second_description">{{ anime.description }}</p>
 		<div class="second_content second_media">
 		{% if flag=='video' %}
-				<a class="img_url" herf="{{anime.video_url}}"></a>
-				<a class="click_to_view" herf="{{anime.video_url}}">点击观看</a>
+				<a class="img_url" href="{{anime.video_url}}"></a>
+				<a class="click_to_view" href="{{anime.video_url}}">点击观看</a>
         {% elif flag=='anime' %}
         <div class="banner">
         	{% for eachAnime in anime_urls %}

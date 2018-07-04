@@ -36,19 +36,20 @@ def index():
     return render_template(
             '/main/index.html',
             movies=movies[:4],
-            courses=courses[:3],
-            animes=animes[:3],
-            photos=photos[:3],
-            articles=articles[:3],
-            notices=notices[:3],
-            startups=startups[:3]
+            courses=courses[:4],
+            animes=animes[:4],
+            photos=photos[:4],
+            articles=articles[:4],
+            notices=notices[:4],
+            startups=startups[:4]
             )
 
 @main.route('/upload/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         tag = request.form.get('upload-class-choice')
-        file_name = request.form.get('file_name')
+        uptime = str(time.time())
+        file_name = uptime.rsplit('.', 1)[0] + uptime.rsplit('.', 1)[1]
         description = request.form.get('description') or ''
 
         if not tag:
@@ -65,18 +66,17 @@ def upload_file():
             return redirect(url_for('main.upload_file'))
 
         img_url = request.form.get('img_url')
-
         if not img_url and tag is not 'article':
-            flash("请添加头图链接!")
-            return redirect(url_for('main.upload_file'))
-        
+            imgs = ["http://p688ihx0v.bkt.clouddn.com/c.png", "http://p688ihx0v.bkt.clouddn.com/n.png", "http://p688ihx0v.bkt.clouddn.com/u.png"]
+            import random
+            img_url = imgs[random.randint(0, len(imgs)-1)]
+
         upload_url = request.form.get('upload_url')
 
         if not upload_url:
             file = request.files['file']
             if allowed_file(file.filename):
-                filename = time.strftime("%a %b %d %H:%M:%S %Y",
-                        time.localtime()) + ' ' + file_name + '.' + file.filename.rsplit('.', 1)[1]
+                filename = file_name + '.' + file.filename.rsplit('.', 1)[1]
             else:
                 flash("请添加文件压缩包或链接!")
                 return redirect(url_for('main.upload_file'))
@@ -86,12 +86,12 @@ def upload_file():
         if tag == 'movie':
             UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'movie/')
             if not upload_url:
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Movie(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,
@@ -103,12 +103,12 @@ def upload_file():
         elif tag == 'article':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'article/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Article(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,
@@ -125,7 +125,7 @@ def upload_file():
                 UPLOAD_FOLDER = 'no'
             item = Photo(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,
@@ -136,12 +136,12 @@ def upload_file():
         elif tag == 'anime':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'anime/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Anime(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,
@@ -153,12 +153,12 @@ def upload_file():
         elif tag == 'course':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'course/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Course(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,
@@ -170,12 +170,12 @@ def upload_file():
         elif tag == 'startup':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'startup/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Startup(
                     upload_name=filename,
-                    present_name=file_name,
+                    present_name=request.form.get('file_name'),
                     author_name=author_name,
                     description=description,
                     upload_url=UPLOAD_FOLDER + filename,

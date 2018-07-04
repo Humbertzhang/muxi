@@ -9,7 +9,7 @@
 		<p class="second_description">{{ movie.description }}</p>
         <div class="second_content second_media">
 					<a class="img_url" href="{{movie.video_url}}"></a>
-					<a  class="click_to_view" herf="{{movie.video_url}}">点击观看</a>
+					<a  class="click_to_view" href="{{movie.video_url}}">点击观看</a>
 				</div>
 	    <!-- 多说评论框 start -->
 	    <div class="ds-thread" data-thread-key="m{{ movie.id }}" data-title="{{ movie.present_name }}" data-url="{{ url_for('main.get_movie', id=movie.id) }}"></div>

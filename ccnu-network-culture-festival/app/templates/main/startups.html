@@ -8,7 +8,7 @@
 		<div class="index_tu_box">
 			{% for startup in startups %}
 			<div class="index_tu_content">
-				<div class="index_tu_img"><a href="{{ url_for('main.get_startup', id=startup.id) }}"><img src="{{ startup.video_url }}"></a></div>
+				<div class="index_tu_img"><a href="{{ url_for('main.get_startup', id=startup.id) }}"><img src="{{ startup.img_url }}"></a></div>
 				<div class="index_tu_info_box">
 					<div class="index_tu_info">
 						<div class="index_tu_title_name"><a href="{{ url_for('main.get_startup', id=startup.id) }}">{{ startup.present_name }}</a>

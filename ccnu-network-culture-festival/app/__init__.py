@@ -69,7 +69,8 @@ def server_static2(filename):
 
 @app.route(config[config_name].BUPLOAD_FOLDER + '/photo' + '/<path:filename>/', methods = ['GET'])
 def server_static3(filename):
-    return send_from_directory(config[config_name].BUPLOAD_FOLDER + "/photo" , filename, as_attachment=True)
+    filename = filename.decode('ascii', 'ignore')
+    return send_from_directory(config[config_name].BUPLOAD_FOLDER + "/photo" , filename, as_attachment=False)
 
 @app.route(config[config_name].BUPLOAD_FOLDER + '/movie' + '/<path:filename>/', methods = ['GET'])
 def server_static4(filename):
