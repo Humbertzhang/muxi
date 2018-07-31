@@ -120,6 +120,8 @@ class Base(object):
     description = db.Column(db.Text)
     img_url = db.Column(db.Text)
     video_url = db.Column(db.Text)
+    photo_url = db.Column(db.Text)
+    article_url = db.Column(db.Text)
     upload_url = db.Column(db.Text)
     a_time = db.Column(db.Text)
     author_name = db.Column(db.String(164))

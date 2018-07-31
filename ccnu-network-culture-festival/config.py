@@ -38,8 +38,12 @@ class Config:
     REDIS_URL = "redis://@localhost:6379/4"
     CAPTCHA_ID = "b46d1900d0a894591916ea94ea91bd2c"
     PRIVATE_KEY = "36fc3fe98530eea08dfc6ce76e3d24c4"
-    PIC_APPENDIX = ['png', 'jpg', 'jpeg', 'bmp', 'gif']
+    PIC_APPENDIX = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'zip', 'pdf']
     RESOURCES_PER_PAGE=30
+    ACCESS_KEY = 'YCdnGHp2tRa7V0KDisHqXehlny0eVNM5vQow1cQV'
+    SECRET_KEY = 'ZGgkaNPunh6Y32FcsAtvhOd61rnlcKeeXPZ-qIlr'
+    URL = 'pchz6zd8k.bkt.clouddn.com'
+    QINIUNAME = 'festival'
     @staticmethod
     def init_app(app):
         pass

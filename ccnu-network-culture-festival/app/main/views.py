@@ -10,12 +10,29 @@ from geetest import GeetestLib
 import time
 import os
 import random
+from qiniu import Auth, put_file, etag
+import qiniu.config
 
 
 captcha_id = app.config['CAPTCHA_ID']
 private_key = app.config['PRIVATE_KEY']
 pic_appendix = app.config['PIC_APPENDIX']
+access_key = app.config['ACCESS_KEY']
+secret_key = app.config['SECRET_KEY']
+url = app.config['URL']
+bucket_name = app.config['QINIUNAME']
+q = qiniu.Auth(access_key, secret_key)
 
+
+def qiniu_upload(key, localfile):
+    token = q.upload_token(bucket_name, key, 3600)
+
+    ret, info = qiniu.put_file(token, key, localfile)
+
+    if ret:
+        return '{0}{1}'.format(url, ret['key'])
+    else:
+        raise UploadError('上传失败，请重试')
 
 def allowed_file(filename):
     if '.' in filename and \
@@ -44,6 +61,42 @@ def index():
             startups=startups[:4]
             )
 
+@main.route('/upgrade/photo/', methods=['GET'])
+def upgrade_photo():
+    photos = Photo.query.filter_by(is_confirm=False).all()
+    try:
+        for eachPhoto in photos:
+            Pos = '/upload/photo/' + eachPhoto.upload_name.split('.')[0]
+            for (dirpath, dirnames, files) in os.walk(Pos):
+                for filename in files:
+                    localfile = os.path.join(dirpath, filename)
+                    qiniukey = str(time.time()).split('.')[0]+filename.split('.')[1]
+                    res = qiniu_upload(qiniukey, localfile)
+                    eachPhoto.photo_url += (res + ';')
+            db.session.add(eachPhoto)
+            db.session.commit()
+        return jsonify({}), 200
+    except:
+        return jsonify({}), 500
+
+@main.route('/upgrade/article/', methods=['GET'])
+def upgrade_article():
+    articles = Article.query.filter_by(is_confirm=True).all()
+    try:
+        for eachArticle in  articles:
+            Pos = '/upload/article/' + eachArticle.upload_name.split('.')[0]
+            for (dirpath, dirnames, files) in os.walk(Pos):
+                for filename in files:
+                    localfiles = os.path.join(dirpath, filename)
+                    qiniukey = str(ime.time()).split('.')[0] + filename.split('.')[1]
+                    res = qiniu_upload(qiniukey, localfiles)
+                    eachArticle.article_url = res
+            db.session.add(eachArticle)
+            db.session.commit()
+        return jsonify({}), 200
+    except:
+        return jsonify({}), 500
+
 @main.route('/upload/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -51,6 +104,7 @@ def upload_file():
         uptime = str(time.time())
         file_name = uptime.rsplit('.', 1)[0] + uptime.rsplit('.', 1)[1]
         description = request.form.get('description') or ''
+        eachfilename = []
 
         if not tag:
             flash("请选择类型!")
@@ -74,11 +128,11 @@ def upload_file():
         upload_url = request.form.get('upload_url')
 
         if not upload_url:
-            file = request.files['file']
-            if allowed_file(file.filename):
-                filename = file_name + '.' + file.filename.rsplit('.', 1)[1]
+            file = request.files['file[]']
+            if allowed_file(file[0].filename):
+                filename = file_name + '.' + file[0].filename.rsplit('.', 1)[1]
             else:
-                flash("请添加文件压缩包或链接!")
+                flash("请添加文件或链接!")
                 return redirect(url_for('main.upload_file'))
         else:
             filename = time.strftime("%a %b %d %H:%M:%S %Y",time.localtime()) + ' ' + file_name
@@ -103,7 +157,10 @@ def upload_file():
         elif tag == 'article':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'article/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                # file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                qiniukey = str(time.time()).split('.')[0] + filename.split('.')[1]
+                localfile = file[0]
+                article_url = qiniu_upload(qiniukey, localfile)
             else:
                 UPLOAD_FOLDER = 'no'
             item = Article(
@@ -114,13 +171,21 @@ def upload_file():
                     upload_url=UPLOAD_FOLDER + filename,
                     video_url=upload_url,
                     img_url = img_url,
+                    article_url=article_url,
                     a_time=(time.strftime("%a %b %d %H:%M:%S %Y",time.localtime()))[:10]
                     )
 
         elif tag == 'photo':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'photo/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename))
+                # file.save(os.path.join(UPLOAD_FOLDER, filename))
+                i = 0
+                photo_url = ''
+                for eachfile in file:
+                    qiniukey = str(time.time()).split('.')[0] + str(i) + filename.split('.')[1]
+                    localfile = eachfile
+                    photo_url += (qiniu_upload(qiniukey, localfile) + ';')
+                    i += 1
             else:
                 UPLOAD_FOLDER = 'no'
             item = Photo(
@@ -131,6 +196,7 @@ def upload_file():
                     upload_url=UPLOAD_FOLDER + filename,
                     video_url=upload_url,
                     img_url = img_url,
+                    photo_url = photo_url,
                     a_time=(time.strftime("%a %b %d %H:%M:%S %Y",time.localtime()))[:10]
                     )
         elif tag == 'anime':
@@ -188,6 +254,7 @@ def upload_file():
         db.session.commit()
         flash("文件已上传!正在审核中···")
         return redirect(url_for('main.upload_file'))
+        print(filename)
     return render_template('/main/upload.html')
 
 
@@ -356,6 +423,7 @@ def get_course(id):
 def get_photo(id):
     photo = Photo.query.get_or_404(id)
     photo_urls = photo.video_url.split(' ')
+    photo_url = photo_url.split(';')
     if 'vote' in session.keys():
         if session['vote'] == 1:
             ip = request.remote_addr
@@ -371,7 +439,7 @@ def get_photo(id):
             return redirect(url_for('main.get_photo', id=photo.id))
     else:
         session['vote'] = 0
-    return render_template('main/photo.html', photo=photo, photo_urls=photo_urls)
+    return render_template('main/photo.html', photo=photo, photo_urls=photo_urls, photo_url=photo_url)
 
 
 @main.route('/startup/<int:id>/', methods=["GET", "POST"])
