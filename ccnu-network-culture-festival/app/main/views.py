@@ -72,8 +72,11 @@ def upgrade_photo():
                 for filename in files:
                     localfile = os.path.join(dirpath, filename)
                     qiniukey = str(time.time()).split('.')[0]+filename.split('.')[1]
-                    res = qiniu_upload(qiniukey, localfile)
-                    eachPhoto.photo_url += (res + ';')
+                    if filename.split('.')[1] in ['jpg', 'jpeg', 'png', 'gif']:
+                        res = qiniu_upload(qiniukey, localfile)
+                        eachPhoto.photo_url += (res + ';')
+                    else:
+                        continue
             db.session.add(eachPhoto)
             db.session.commit()
         return jsonify({}), 200
