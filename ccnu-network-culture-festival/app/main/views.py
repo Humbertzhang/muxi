@@ -67,6 +67,7 @@ def upgrade_photo():
     try:
         for eachPhoto in photos:
             Pos = '/upload/photo/' + eachPhoto.upload_name.split('.')[0]
+            print(Pos)
             for (dirpath, dirnames, files) in os.walk(Pos):
                 for filename in files:
                     localfile = os.path.join(dirpath, filename)
