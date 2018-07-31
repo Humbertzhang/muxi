@@ -63,7 +63,7 @@ def index():
 
 @main.route('/upgrade/photo/', methods=['GET'])
 def upgrade_photo():
-    photos = Photo.query.filter_by(is_confirm=False).all()
+    photos = Photo.query.filter_by(is_confirm=True).all()
     try:
         for eachPhoto in photos:
             Pos = '/upload/photo/' + eachPhoto.upload_name.split('.')[0]
