@@ -7,7 +7,8 @@
 			<span class="second_head_author">{{ startup.a_time }}/{{ startup.author_name }}</span>
 		</div>
         <p class="second_description">{{ startup.body_html|safe }}</p>
-        <div class="second_content second_media"><img src="{{ startup.video_url }}"></div>
+		<div class="second_content second_media"><img src="{{ startup.video_url }}"></div>
+		<iframe src="{{ startup.article_url }}" class="article_size"></iframe>
         <a href="{{ startup.upload_url }}" class="second_download">点击下载</a>
 	    <!-- 多说评论框 start -->
 	    <div class="ds-thread" data-thread-key="p{{ startup.id }}" data-title="{{ startup.present_name }}" data-url="{{ url_for('main.get_startup', id=startup.id) }}"></div>

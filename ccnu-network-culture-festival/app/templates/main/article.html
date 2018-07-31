@@ -7,6 +7,7 @@
 			<span class="second_head_author">{{ article.a_time }}/{{ article.author_name }}</span>
 		</div>
 		<div class="second_content second_article">{{ article.description|safe }}</div>
+		<iframe src="{{ article.article_url }}" class="article_size"></iframe>
 		<a href="{{ article.upload_url }}" class="second_download">点击下载</a>
 	    <!-- 多说评论框 start -->
 	    <div class="ds-thread" data-thread-key="r{{ article.id }}" data-title="{{ article.present_name }}" data-url="{{ url_for('main.get_article', id=article.id) }}"></div>

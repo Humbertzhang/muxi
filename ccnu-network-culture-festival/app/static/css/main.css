@@ -680,3 +680,14 @@ label {
 .click_to_view {
   text-align: center;
 }
+.img_size{
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+}
+.article_size{
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 500px;
+}
