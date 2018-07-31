@@ -31,14 +31,14 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_RECORD_QUERIES = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    ALLOWED_EXTENSIONS = ['zip', 'rar']
+    ALLOWED_EXTENSIONS = ['zip', 'png', 'jpg', 'jpeg', 'pdf']
     MAX_CONTENT_LENGTH = 30 * 1024 * 1024
     BUPLOAD_FOLDER = os.path.join(basedir, "/upload")
     #BUPLOAD_FOLDER = os.environ.get('BUPLOAD_FOLDER')
     REDIS_URL = "redis://@localhost:6379/4"
     CAPTCHA_ID = "b46d1900d0a894591916ea94ea91bd2c"
     PRIVATE_KEY = "36fc3fe98530eea08dfc6ce76e3d24c4"
-    PIC_APPENDIX = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'zip', 'pdf']
+    PIC_APPENDIX = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'zip']
     RESOURCES_PER_PAGE=30
     ACCESS_KEY = 'YCdnGHp2tRa7V0KDisHqXehlny0eVNM5vQow1cQV'
     SECRET_KEY = 'ZGgkaNPunh6Y32FcsAtvhOd61rnlcKeeXPZ-qIlr'

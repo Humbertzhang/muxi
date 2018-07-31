@@ -104,7 +104,6 @@ def upload_file():
         uptime = str(time.time())
         file_name = uptime.rsplit('.', 1)[0] + uptime.rsplit('.', 1)[1]
         description = request.form.get('description') or ''
-        eachfilename = []
 
         if not tag:
             flash("请选择类型!")
@@ -128,7 +127,8 @@ def upload_file():
         upload_url = request.form.get('upload_url')
 
         if not upload_url:
-            file = request.files['file[]']
+            file = request.files.getlist("file")
+            print(file[0].filename)
             if allowed_file(file[0].filename):
                 filename = file_name + '.' + file[0].filename.rsplit('.', 1)[1]
             else:
@@ -140,7 +140,7 @@ def upload_file():
         if tag == 'movie':
             UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'movie/')
             if not upload_url:
-                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Movie(
@@ -159,8 +159,7 @@ def upload_file():
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'article/')
                 # file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
                 qiniukey = str(time.time()).split('.')[0] + filename.split('.')[1]
-                localfile = file[0]
-                article_url = qiniu_upload(qiniukey, localfile)
+                article_url = qiniu_upload(qiniukey, file[0])
             else:
                 UPLOAD_FOLDER = 'no'
             item = Article(
@@ -202,7 +201,7 @@ def upload_file():
         elif tag == 'anime':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'anime/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Anime(
@@ -219,7 +218,7 @@ def upload_file():
         elif tag == 'course':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'course/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Course(
@@ -236,7 +235,7 @@ def upload_file():
         elif tag == 'startup':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'startup/')
-                file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
             else:
                 UPLOAD_FOLDER = 'no'
             item = Startup(
