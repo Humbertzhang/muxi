@@ -9,7 +9,7 @@
 		<p class="second_description">{{ photo.description }}</p>
         <div class="second_content second_media">
 			{% for url in photo_url %}
-				<img src="{{ url }}" class = "img_size" /></br>
+				<img src="{{ 'http://' + url }}" class = "img_size" /></br>
 			{% endfor %}
         </div>
 	    <!-- 多说评论框 start -->
