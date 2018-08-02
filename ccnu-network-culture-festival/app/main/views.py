@@ -45,14 +45,6 @@ def index():
     courses = Course.query.filter_by(is_confirm=True).all()
     animes = Anime.query.filter_by(is_confirm=True).all()
     photos = Photo.query.filter_by(is_confirm=True).all()
-    for each in photos:
-        if each.photo_url == None:
-            continue
-        mystr = each.photo_url.split(';')[0]
-        i = mystr.find('com')
-        each.img_url = mystr[:i+3] + '/' + mystr[i+3:]
-        db.session.add(each)
-        db.session.commit()
     startups = Startup.query.filter_by(is_confirm=True).all()
     for eachPhoto in photos:
         eachPhoto.first_photo = eachPhoto.video_url.split(' ')[0]
