@@ -440,9 +440,10 @@ def get_photo(id):
     photo_url = photo.photo_url.split(';')
     photo_url.pop()
     for str in photo_url:
+        photo_url.remove(str)
         i = str.find('com')
         str = str[:i+ 3] + '/' + str[i+3:]
-#        print(str)
+        photo_url.append(str)
 #    print(len(photo_url),"-----------------------------------------")
     if 'vote' in session.keys():
         if session['vote'] == 1:
