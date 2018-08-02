@@ -437,6 +437,8 @@ def get_photo(id):
     photo = Photo.query.get_or_404(id)
     photo_urls = photo.video_url.split(' ')
 #    print(photo.photo_url, "+++++++++++++++++++++++++++")
+    if photo.photo_url == None:
+        photo.photo_url = 'http://p688ihx0v.bkt.clouddn.com/c.png;http://p688ihx0v.bkt.clouddn.com/c.png;'
     tphoto_url = photo.photo_url.split(';')
     tphoto_url.pop()
     photo_url = []
