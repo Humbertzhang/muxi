@@ -67,14 +67,15 @@ def upgrade_photo():
     try:
         for eachPhoto in photos:
             Pos = '/upload/photo/' + eachPhoto.upload_name.split('.')[0]
-            print(Pos)
+            #print(Pos)
             for (dirpath, dirnames, files) in os.walk(Pos):
                 for filename in files:
                     localfile = os.path.join(dirpath, filename)
-                    qiniukey = str(time.time()).split('.')[0]+filename.split('.')[1]
+                    qiniukey = str(time.time()).split('.')[0]+ '.' + filename.split('.')[1]
                     if filename.split('.')[1] in ['jpg', 'jpeg', 'png', 'gif']:
+                        print(localfile)
                         res = qiniu_upload(qiniukey, localfile)
-                        eachPhoto.photo_url += (res + ';')
+                        eachPhoto.photo_url = eachPhoto.photo_url + res + ';'
                     else:
                         continue
             db.session.add(eachPhoto)
@@ -132,7 +133,8 @@ def upload_file():
 
         if not upload_url:
             file = request.files.getlist("file")
-            print(file[0].filename)
+#            print (type(file))
+#            print(file[0].filename)
             if allowed_file(file[0].filename):
                 filename = file_name + '.' + file[0].filename.rsplit('.', 1)[1]
             else:
@@ -161,9 +163,10 @@ def upload_file():
         elif tag == 'article':
             if not upload_url:
                 UPLOAD_FOLDER = os.path.join(app.config['BUPLOAD_FOLDER'], 'article/')
-                # file.save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
-                qiniukey = str(time.time()).split('.')[0] + filename.split('.')[1]
-                article_url = qiniu_upload(qiniukey, file[0])
+                file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
+                localfile = '/upload/article/'+filename
+                qiniukey = filename
+                article_url = qiniu_upload(qiniukey, localfile)
             else:
                 UPLOAD_FOLDER = 'no'
             item = Article(
@@ -185,10 +188,14 @@ def upload_file():
                 i = 0
                 photo_url = ''
                 for eachfile in file:
-                    qiniukey = str(time.time()).split('.')[0] + str(i) + filename.split('.')[1]
-                    localfile = eachfile
+#                    qiniukey = str(time.time()).split('.')[0] + str(i) + '.'+filename.split('.')[1]
+                    thisfilename = str(time.time()).split('.')[0] + str(i) +'.'+ filename.split('.')[1]
+                    qiniukey = thisfilename
+                    eachfile.save(os.path.join(UPLOAD_FOLDER, thisfilename).encode('utf-8').strip())
+                    localfile = '/upload/photo/'+thisfilename
                     photo_url += (qiniu_upload(qiniukey, localfile) + ';')
                     i += 1
+ #                   print(photo_url)
             else:
                 UPLOAD_FOLDER = 'no'
             item = Photo(
@@ -426,7 +433,14 @@ def get_course(id):
 def get_photo(id):
     photo = Photo.query.get_or_404(id)
     photo_urls = photo.video_url.split(' ')
-    photo_url = photo_url.split(';')
+#    print(photo.photo_url, "+++++++++++++++++++++++++++")
+    photo_url = photo.photo_url.split(';')
+    photo_url.pop()
+#    for str in photo_url:
+#        i = str.find('com')
+#        str = str[:i+ 3] + '/' + str[i+3:]
+#        print(str)
+#    print(len(photo_url),"-----------------------------------------")
     if 'vote' in session.keys():
         if session['vote'] == 1:
             ip = request.remote_addr
