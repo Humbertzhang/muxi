@@ -1,0 +1,119 @@
+nohup: ignoring input
+ * Running on http://0.0.0.0:8085/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 388-854-133
+27.192.88.188 - - [02/Aug/2018 15:07:21] "GET /main/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/z HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/c HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/h HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/6 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/d HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:24] "GET /main/photo/7/p HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/8 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/k HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/b HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/t HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/l HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/o HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/n HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/u HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/m HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/1 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/5 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/7 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/3 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/j HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/0 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/g HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:25] "GET /main/photo/7/; HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:07:29] "GET /main/movie/3/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:10:30] "GET /main/article/3/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:10:30] "GET /main/article/3/None HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:07] "GET /main/rank/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:08] "GET /static/js/rank.js HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:09] "GET /main/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:15] "GET /main/course/2/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/6 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/z HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/p HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/c HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/h HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/d HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/k HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/8 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/b HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/l HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/t HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/o HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/n HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/u HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/1 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/5 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:18] "GET /main/photo/6/m HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:19] "GET /main/photo/6/3 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:19] "GET /main/photo/6/7 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:19] "GET /main/photo/6/j HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:19] "GET /main/photo/6/g HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:12:19] "GET /main/photo/6/; HTTP/1.1" 404 -
+ * Detected change in '/root/muxi/ccnu-network-culture-festival/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 388-854-133
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/6 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/c HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/p HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/z HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/d HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/h HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/8 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/b HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/t HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/k HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/l HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/u HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/o HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/m HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/n HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/5 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/1 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/7 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/j HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/3 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/g HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:38] "GET /main/photo/6/; HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/6 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/z HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/c HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/p HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/d HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/h HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/8 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/k HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/t HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/b HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/o HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/l HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/u HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/n HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/m HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/1 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/5 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/3 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/7 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/0 HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/g HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/ HTTP/1.1" 200 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/; HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/j HTTP/1.1" 404 -
+27.192.88.188 - - [02/Aug/2018 15:27:42] "GET /main/photo/7/ HTTP/1.1" 200 -
+ * Detected change in '/root/muxi/ccnu-network-culture-festival/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 388-854-133

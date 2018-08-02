@@ -166,7 +166,10 @@ def upload_file():
                 file[0].save(os.path.join(UPLOAD_FOLDER, filename).encode('utf-8').strip())
                 localfile = '/upload/article/'+filename
                 qiniukey = filename
-                article_url = qiniu_upload(qiniukey, localfile)
+                mystr = qiniu_upload(qiniukey, localfile)
+                i = mystr.find('com')
+                mystr = my[:i+ 3] + '/' + str[i+3:]
+                article_url = mystr
             else:
                 UPLOAD_FOLDER = 'no'
             item = Article(
@@ -436,9 +439,9 @@ def get_photo(id):
 #    print(photo.photo_url, "+++++++++++++++++++++++++++")
     photo_url = photo.photo_url.split(';')
     photo_url.pop()
-#    for str in photo_url:
-#        i = str.find('com')
-#        str = str[:i+ 3] + '/' + str[i+3:]
+    for str in photo_url:
+        i = str.find('com')
+        str = str[:i+ 3] + '/' + str[i+3:]
 #        print(str)
 #    print(len(photo_url),"-----------------------------------------")
     if 'vote' in session.keys():
