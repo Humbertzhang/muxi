@@ -93,9 +93,16 @@ def upgrade_article():
             for (dirpath, dirnames, files) in os.walk(Pos):
                 for filename in files:
                     localfiles = os.path.join(dirpath, filename)
-                    qiniukey = str(ime.time()).split('.')[0] + 'pdf'
-                    res = qiniu_upload(qiniukey, localfiles)
-                    eachArticle.article_url = res
+                    qiniukey = str(ime.time()).split('.')[0] + '.'+filename.split('.')[1]
+                    if filename.split('.')[1] == 'pdf':
+                        res = qiniu_upload(qiniukey, localfiles)
+                        i = res.find('com')
+                        arurl = res[:i + 3] + '/' + res[i + 3:]
+                        eachArticle.article_url = arurl
+#                        print(eachArticle.article_url)
+                        time.sleep(1)
+                    else:
+                        continue
             db.session.add(eachArticle)
             db.session.commit()
         return jsonify({}), 200
