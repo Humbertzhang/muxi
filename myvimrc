@@ -1,4 +1,5 @@
 syntax on
+set mouse=a
 set background=dark
 if has("autocmd")
   filetype plugin indent on
